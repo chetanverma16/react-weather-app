@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./styles/main.scss";
 import axios from "axios";
-import ContentLoader, { Facebook } from "react-content-loader";
 
 // Components
 import Header from "./components/header";
