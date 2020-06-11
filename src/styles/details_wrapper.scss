@@ -1,0 +1,30 @@
+.details_wrapper {
+  position: relative;
+  top: 5vh;
+  display: flex;
+  flex-direction: row;
+  width: 70vw;
+  align-items: flex-start;
+  .detail {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 10px;
+    background: white;
+    border-radius: 10px;
+    font-size: 10px;
+    transition: all 0.2s ease-in-out !important;
+    margin: 10px;
+    padding-bottom: 0px;
+    width: 100px;
+    &:first-child {
+      margin-left: 0;
+    }
+    &:hover {
+      background-color: #2196f3;
+      color: white;
+    }
+  }
+}

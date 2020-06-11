@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap");
+
+// Components
+@import "./header.scss";
+@import "./details_wrapper.scss";
+@import "./temperaturecard.scss";
+@import "./loader.scss";
+
+body,
+html {
+  user-select: none;
+  overscroll-behavior: none;
+  margin: 0 auto;
+  font-family: "Montserrat";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: whitesmoke;
+  overflow-x: hidden;
+  transition: all 0.4s ease-in-out;
+  scroll-behavior: smooth;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  align-items: center;
+  overflow-y: hidden;
+}
+
+.content_loader {
+  position: relative;
+  width: 70vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}

@@ -1,0 +1,26 @@
+.temperature_card_wrapper {
+  position: relative;
+  top: 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 70vw;
+  margin: 1rem;
+  margin-bottom: 5rem;
+  .temperature_card {
+    background: white;
+    height: 400px;
+    width: 100%;
+    flex-direction: column;
+    border-radius: 20px;
+    .temperature {
+      position: relative;
+      left: 3rem;
+    }
+    .graph_wrapper {
+      height: 300px;
+      width: 100%;
+      overflow: hidden;
+    }
+  }
+}

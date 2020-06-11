@@ -1,0 +1,19 @@
+.header {
+  position: relative;
+  top: 2vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 70vw;
+  h1 {
+    font-size: 4rem;
+    overflow: hidden;
+  }
+  .search_bar {
+    background: white;
+    border: 0px solid;
+    padding: 1rem;
+    width: 500px;
+    border-radius: 10px;
+  }
+}
