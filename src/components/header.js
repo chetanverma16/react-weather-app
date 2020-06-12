@@ -29,7 +29,7 @@ const Header = ({ previousWeatherData }) => {
         <h1>Rich Panel Weather App</h1>
       </Fade>
 
-      <form>
+      <form onSubmit={(e) => e.preventDefault()}>
         <input
           type="text"
           className="search_bar"
@@ -40,7 +40,7 @@ const Header = ({ previousWeatherData }) => {
           }></input>
       </form>
       <div className="previous_weather">
-        {previousWeatherData
+        {previousWeatherData != undefined
           ? previousWeatherData.list.map((day) => (
               <div className="previousinfo">
                 <h3>
@@ -50,7 +50,7 @@ const Header = ({ previousWeatherData }) => {
                     </Moment>
                   }
                 </h3>
-                <span>{`${day.temp.day} F `}</span>
+                <span>{`${day.temp.day} C`}</span>
                 <img className="icon" src={findIcon(day.weather[0].main)}></img>
                 <h3>{day.weather[0].main}</h3>
               </div>

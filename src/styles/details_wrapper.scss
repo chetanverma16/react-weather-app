@@ -29,5 +29,8 @@
       background-color: #2196f3;
       color: white;
     }
+    @include media(">=phone", "<=tablet") {
+      font-size: 8px;
+    }
   }
 }

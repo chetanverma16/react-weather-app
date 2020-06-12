@@ -56,6 +56,30 @@ const dummyData = [
 ];
 
 const TemeperatureCard = ({ data }) => {
+  const convertedData = [];
+
+  const [finalData, setFinalData] = useState([]);
+
+  const dataConverter = () => {
+    if (data) {
+      data.hourly.forEach((item) => {
+        let time = new Date(item.dt * 1000).getHours();
+
+        convertedData.push({
+          convertedTime: time,
+          celciusTemp: item.temp,
+        });
+      });
+      setFinalData(convertedData);
+    }
+  };
+
+  useEffect(() => {
+    dataConverter();
+    console.log(convertedData);
+    setFinalData(convertedData);
+  }, []);
+
   let componentRef = useRef();
   const { width, height } = useContainerDimensions(componentRef);
 
@@ -63,26 +87,26 @@ const TemeperatureCard = ({ data }) => {
     <div className="temperature_card_wrapper">
       <div className="temperature_card" ref={componentRef}>
         <div className="temperature">
-          <h1>{`${data ? data.current.temp : " fetching.."} F`}</h1>
+          <h1>{`${data ? data.current.temp : " fetching.."} C`}</h1>
         </div>
         <div className="graph_wrapper">
           <AreaChart
             width={width - 20}
             height={height - 100}
-            data={data ? data.hourly : dummyData}>
+            data={finalData ? finalData : dummyData}>
             <defs>
               <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="5%" stopColor="#2196f3" stopOpacity={0.8} />
                 <stop offset="95%" stopColor="#2196f3" stopOpacity={0} />
               </linearGradient>
             </defs>
-            <XAxis dataKey="dt" />
-            <YAxis dataKey="temp" />
+            <XAxis dataKey="convertedTime" />
+            <YAxis dataKey="celciusTemp" />
             <CartesianGrid strokeDasharray="3 3" />
             <Tooltip />
             <Area
               type="monotone"
-              dataKey="temp"
+              dataKey="celciusTemp"
               stroke="#2196f3"
               fillOpacity={1}
               fill="url(#colorUv)"

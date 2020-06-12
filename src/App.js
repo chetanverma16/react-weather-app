@@ -29,10 +29,9 @@ function App() {
 
     const fetchPreviousData = async () => {
       const result = await axios(
-        `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lon}&cnt=7&appid=31eb8a846f539ccb4176a5f600ac54be`
+        `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lon}&units=metric&cnt=7&appid=31eb8a846f539ccb4176a5f600ac54be`
       )
         .then((resp) => {
-          console.log(resp);
           setPreviousWeatherData(resp.data);
         })
         .catch((err) => console.log(err));
@@ -40,7 +39,7 @@ function App() {
 
     const fetchData = async () => {
       const result = await axios(
-        `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,daily&appid=31eb8a846f539ccb4176a5f600ac54be`
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=minutely,daily&appid=31eb8a846f539ccb4176a5f600ac54be`
       ).then((resp) => {
         console.log(resp.data);
         setData(resp.data);

@@ -13,6 +13,7 @@
     "react-dom": "^16.13.1",
     "react-icons": "^3.10.0",
     "react-moment": "^0.9.7",
+    "react-places-autocomplete": "^7.2.1",
     "react-reveal": "^1.2.2",
     "react-scripts": "3.4.1",
     "recharts": "^1.8.5"
