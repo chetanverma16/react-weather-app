@@ -1,8 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 
 import { useContainerDimensions } from "../utils/useContainerDimenstions";
-
-import { IoIosSunny } from "react-icons/io";
 import {
   AreaChart,
   XAxis,

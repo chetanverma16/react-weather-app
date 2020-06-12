@@ -13,6 +13,9 @@
     width: 100%;
     flex-direction: column;
     border-radius: 20px;
+    -webkit-box-shadow: 0px 0px 36px -22px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 0px 0px 36px -22px rgba(0, 0, 0, 1);
+    box-shadow: 0px 0px 36px -22px rgba(0, 0, 0, 1);
     .temperature {
       position: relative;
       left: 3rem;

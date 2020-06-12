@@ -9,6 +9,7 @@ import TemperatureCard from "./components/temeperatureGraph";
 
 function App() {
   const [data, setData] = useState();
+  const [previousWeatherData, setPreviousWeatherData] = useState({});
   const [loading, setLoading] = useState(true);
   let [lat, setLat] = useState(33.441792);
   let [lon, setLon] = useState(-94.037689);
@@ -26,6 +27,17 @@ function App() {
       );
     }
 
+    const fetchPreviousData = async () => {
+      const result = await axios(
+        `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lon}&cnt=7&appid=31eb8a846f539ccb4176a5f600ac54be`
+      )
+        .then((resp) => {
+          console.log(resp);
+          setPreviousWeatherData(resp.data);
+        })
+        .catch((err) => console.log(err));
+    };
+
     const fetchData = async () => {
       const result = await axios(
         `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,daily&appid=31eb8a846f539ccb4176a5f600ac54be`
@@ -36,13 +48,15 @@ function App() {
       });
     };
     fetchData();
+
+    fetchPreviousData();
   }, [lat, lon]);
 
   return (
     <div className="container">
       {loading ? (
         <div className="content_loader">
-          <div class="lds-grid">
+          <div className="lds-grid">
             <div></div>
             <div></div>
             <div></div>
@@ -58,7 +72,7 @@ function App() {
         <>
           {" "}
           <Header
-            currentLocation={data ? data.timezone : "Enter Valid TimeZone"}
+            previousWeatherData={previousWeatherData ? previousWeatherData : ""}
           />
           <Details currentData={data ? data.current : ""} />
           <TemperatureCard data={data ? data : ""}></TemperatureCard>

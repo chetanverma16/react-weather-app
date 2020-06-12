@@ -9,11 +9,47 @@
     font-size: 4rem;
     overflow: hidden;
   }
+
+  .previous_weather {
+    display: flex;
+    flex-direction: row;
+    .previousinfo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: white;
+      width: 60px;
+      padding: 10px;
+      margin: 10px;
+      border-radius: 10px;
+      transition: all 0.2s ease-in-out;
+      &:hover {
+        background: #2196f3;
+        color: white;
+      }
+      &:first-child {
+        margin-left: 0;
+      }
+      h3 {
+        font-size: 10px;
+      }
+      span {
+        font-size: 10px;
+      }
+      .icon {
+        width: 20px;
+        margin: 10px;
+      }
+    }
+  }
   .search_bar {
     background: white;
     border: 0px solid;
     padding: 1rem;
     width: 500px;
     border-radius: 10px;
+    -webkit-box-shadow: 0px 0px 36px -22px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 0px 0px 36px -22px rgba(0, 0, 0, 1);
+    box-shadow: 0px 0px 36px -22px rgba(0, 0, 0, 1);
   }
 }
